@@ -41,11 +41,11 @@
             var num2 = parseInt(document.getElementById('num2+').value);
             var itung = parseInt(document.getElementById('res+').value);
             if (!itung){
-                document.getElementById('cek+').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+                document.getElementById('cek+').innerHTML = 'Tidak Ada Jawaban!!! Harus Isi Dulu!!';
             } else if (num1 + num2 == itung){
-                document.getElementById('cek+').innerHTML = 'Jawaban Benar!!' ;
+                document.getElementById('cek+').innerHTML = 'Jawaban Benar!!!' ;
             } else if (num1 + num2 != itung){
-                document.getElementById('cek+').innerHTML = 'Jawaban Salah';
+                document.getElementById('cek+').innerHTML = 'Jawaban Salah!!!';
             }
         }
         function cek2() {
@@ -53,11 +53,11 @@
             var num2 = parseInt(document.getElementById('num2-').value);
             var itung = parseInt(document.getElementById('res-').value);
             if (!itung){
-                document.getElementById('cek-').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+                document.getElementById('cek-').innerHTML = 'Tidak Ada Jawaban!!! Harus Isi Dulu!!';
             } else if (num1 - num2 == itung){
-                document.getElementById('cek-').innerHTML = 'Jawaban Benar!!' ;
+                document.getElementById('cek-').innerHTML = 'Jawaban Benar!!!' ;
             } else if (num1 + num2 != itung){
-                document.getElementById('cek-').innerHTML = 'Jawaban Salah';
+                document.getElementById('cek-').innerHTML = 'Jawaban Salah!!!';
             }
         }
         function cek3() {
@@ -66,25 +66,25 @@
             var one = parseInt(document.getElementById('one').value);
             var num = parseInt(document.getElementById('num').value);
             if (!hun && hun != 0){
-                document.getElementById('cekRatus').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+                document.getElementById('cekRatus').innerHTML = 'Tidak Ada Jawaban!!! Harus Isi Dulu!!';
             } else if (num - (num%100) == hun){
-                document.getElementById('cekRatus').innerHTML = 'Jawaban Benar!!' ;
+                document.getElementById('cekRatus').innerHTML = 'Jawaban Ratusan Benar!!!' ;
             } else if (num - (num%100) != hun){
-                document.getElementById('cekRatus').innerHTML = 'Jawaban Salah';
+                document.getElementById('cekRatus').innerHTML = 'Jawaban Ratusan Salah!!!';
             }
             if (!ten && ten != 0){
-                document.getElementById('cekPuluh').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+                document.getElementById('cekPuluh').innerHTML = 'Tidak Ada Jawaban!!! Harus Isi Dulu!!';
             } else if ((num%100)-((num%100)%10) == ten){
-                document.getElementById('cekPuluh').innerHTML = 'Jawaban Benar!!' ;
+                document.getElementById('cekPuluh').innerHTML = 'Jawaban Puluhan Benar!!!' ;
             } else if ((num%100)-((num%100)%10) != ten){
-                document.getElementById('cekPuluh').innerHTML = 'Jawaban Salah';
+                document.getElementById('cekPuluh').innerHTML = 'Jawaban Puluhan Salah!!!';
             }
             if (!one && one != 0){
-                document.getElementById('cekSatu').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+                document.getElementById('cekSatu').innerHTML = 'Tidak Ada Jawaban!!! Harus Isi Dulu!!';
             } else if ((num%100)%10 == one){
-                document.getElementById('cekSatu').innerHTML = 'Jawaban Benar!!' ;
+                document.getElementById('cekSatu').innerHTML = 'Jawaban Satuan Benar!!!' ;
             } else if ((num%100)%10 != one){
-                document.getElementById('cekSatu').innerHTML = 'Jawaban Salah';
+                document.getElementById('cekSatu').innerHTML = 'Jawaban Satuan Salah!!!';
             }
         }
     </script>

@@ -10,6 +10,45 @@ body, html {
     margin: auto;
     margin-top: 50px;
     padding: 30px;
-    width: 500px;
+    width: 370px;
     text-align: center;
+    border-radius: 20px;
+}
+
+p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+input {
+    width: 350px;
+}
+
+select, #konv {
+    width: 100%;
+}
+
+button {
+    background-color: #2575fc;
+    color: white;
+    border: 0;
+}
+
+#tuker {
+    width: 150px;
+}
+
+#konv {
+    font-weight: bold;
+}
+
+#hasil {
+    color: #2575fc;
+    margin-bottom: 0;
 }

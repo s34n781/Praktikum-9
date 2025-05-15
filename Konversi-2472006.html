@@ -9,7 +9,60 @@
 </head>
 <body>
     <div class="container">
-        <h3>Konverter Mata Uang</h3>
+        <h2>Konverter Mata Uang</h2>
+        <p>Jumlah Uang</p>
+        <input type="text" name="" id="num" placeholder="Jumlah uang">
+        <p>Dari Mata Uang</p>
+        <select name="" id="dari"></select>
+        <p>&nbsp;</p>
+        <button id="tuker" onclick="change()">&#8644; Tukar Mata Uang</button>
+        <p>Ke Mata Uang</p>
+        <select name="" id="ke"></select>
+        <br><br><button id="konv" onclick="convert()">Konversi</button>
+        <h4 id="hasil"></h4>
     </div>
+    <script>
+        let kode = ['USD', 'IDR', 'EUR', 'JPY', 'GBP', 'SGD', 'AUD'];
+        let nama = ['Dollar Amerika', 'Rupiah Indonesia', 'Euro', 'Yen Jepang', 'Pound Inggris', 'Dollar Singapura', 'Dollar Australia'];
+        let nilai = [16500, 1, 18500, 165, 22000, 12750, 10500];
+        let fromCurrency = document.getElementById('dari');
+        let toCurrency = document.getElementById('ke');
+        conv = [fromCurrency, toCurrency];
+        for (let j = 0; j < 2; j++) {
+            for (let i = 0; i < kode.length; i++) {
+                var opt = document.createElement('option');
+                opt.innerHTML = kode[i] + ' - ' + nama[i];
+                opt.value = nilai[i];
+                conv[j].appendChild(opt);
+            }
+        }
+
+        function change() {
+            var temp = fromCurrency.value;
+            fromCurrency.value = toCurrency.value;
+            toCurrency.value = temp;
+        }
+        
+        function convert(){
+            let num = document.getElementById('num').value;
+            let res = (num * (fromCurrency.value / toCurrency.value));
+            for (let i = 0; i < nilai.length; i++) {
+                if (nilai[i] == fromCurrency.value) {
+                    fromIndex = [i];
+                }
+                if (nilai[i] == toCurrency.value) {
+                    toIndex = [i];
+                }
+                
+            }
+            resFormat = res.toLocaleString('de-DE');
+            if (res == Math.round(res)) {
+                resFormat = resFormat + ',00';
+            }
+            document.getElementById('hasil').innerHTML = num + ' ' + kode[fromIndex] + ' = ' + resFormat + ' ' + kode[toIndex];
+        }
+
+        
+    </script>
 </body>
 </html>
