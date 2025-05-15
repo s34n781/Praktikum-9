@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./calc.css">
+</head>
+<body>
+    <h4>Penjumlahan</h4>
+    <button onclick="ref1()">Refresh</button><br>
+    <input type="text" name="" id="num1+">+<input type="text" name="" id="num2+">=<input type="text" name="" id="res+"><button onclick="cek1()">Cek Hasil</button><br>
+    <div id="cek+"></div>
+
+    <h4>Pengurangan</h4>
+    <button onclick="ref2()">Refresh</button><br>
+    <input type="text" name="" id="num1-">-<input type="text" name="" id="num2-">=<input type="text" name="" id="res-"><button onclick="cek2()">Cek Hasil</button><br>
+    <div id="cek-"></div>
+
+    <h4>Nilai Bilangan</h4>
+    <button onclick="ref3()">Refresh</button><br>
+    <input type="text" name="" id="num">=<input type="text" name="" id="hun">+<input type="text" name="" id="ten">+<input type="text" name="" id="one"><button onclick="cek3()">Cek Hasil</button><br>
+    <div id="cekRatus"></div>
+    <div id="cekPuluh"></div>
+    <div id="cekSatu"></div>
+    <script>
+        function ref1() {
+            document.getElementById('num1+').value = Math.ceil(Math.random()*999);
+            document.getElementById('num2+').value = Math.ceil(Math.random()*999);
+        }
+        function ref2() {
+            document.getElementById('num1-').value = Math.ceil(Math.random()*999);
+            document.getElementById('num2-').value = Math.ceil(Math.random()*999);
+        }
+        function ref3() {
+            document.getElementById('num').value = Math.ceil(Math.random()*999);
+        }
+        function cek1() {
+            var num1 = parseInt(document.getElementById('num1+').value);
+            var num2 = parseInt(document.getElementById('num2+').value);
+            var itung = parseInt(document.getElementById('res+').value);
+            if (!itung){
+                document.getElementById('cek+').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+            } else if (num1 + num2 == itung){
+                document.getElementById('cek+').innerHTML = 'Jawaban Benar!!' ;
+            } else if (num1 + num2 != itung){
+                document.getElementById('cek+').innerHTML = 'Jawaban Salah';
+            }
+        }
+        function cek2() {
+            var num1 = parseInt(document.getElementById('num1-').value);
+            var num2 = parseInt(document.getElementById('num2-').value);
+            var itung = parseInt(document.getElementById('res-').value);
+            if (!itung){
+                document.getElementById('cek-').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+            } else if (num1 - num2 == itung){
+                document.getElementById('cek-').innerHTML = 'Jawaban Benar!!' ;
+            } else if (num1 + num2 != itung){
+                document.getElementById('cek-').innerHTML = 'Jawaban Salah';
+            }
+        }
+        function cek3() {
+            var hun = parseInt(document.getElementById('hun').value);
+            var ten = parseInt(document.getElementById('ten').value);
+            var one = parseInt(document.getElementById('one').value);
+            var num = parseInt(document.getElementById('num').value);
+            console.log(num - (num%100) == hun)
+            console.log(num - (num%100))
+            console.log(!hun)
+            if (!hun && hun != 0){
+                document.getElementById('cekRatus').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+            } else if (num - (num%100) == hun){
+                document.getElementById('cekRatus').innerHTML = 'Jawaban Benar!!' ;
+            } else if (num - (num%100) != hun){
+                document.getElementById('cekRatus').innerHTML = 'Jawaban Salah';
+            }
+            if (!ten && ten != 0){
+                document.getElementById('cekPuluh').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+            } else if ((num%100)-((num%100)%10) == ten){
+                document.getElementById('cekPuluh').innerHTML = 'Jawaban Benar!!' ;
+            } else if ((num%100)-((num%100)%10) != ten){
+                document.getElementById('cekPuluh').innerHTML = 'Jawaban Salah';
+            }
+            if (!one && one != 0){
+                document.getElementById('cekSatu').innerHTML = 'Tidak Ada Jawaban, Harus Isi Dulu!!';
+            } else if ((num%100)%10 == one){
+                document.getElementById('cekSatu').innerHTML = 'Jawaban Benar!!' ;
+            } else if ((num%100)%10 != one){
+                document.getElementById('cekSatu').innerHTML = 'Jawaban Salah';
+            }
+        }
+    </script>
+</body>
+</html>

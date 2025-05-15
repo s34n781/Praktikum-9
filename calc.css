@@ -1,0 +1,14 @@
+* {
+    margin: 3px;
+}
+
+input, button {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+h4 {
+    margin-top: 10px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
