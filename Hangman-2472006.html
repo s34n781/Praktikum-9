@@ -10,15 +10,98 @@
 <body>
     <div class="container">
         <div class="container1">
-            <img src="./img/0.jpg" alt="" srcset=""><br>
-            <h3>Lives: 0</h3>
+            <img src="./img/0.jpg" alt="" id="man"><br>
+            <h3>Lives: <div id="lives"></div></h3>
         </div>
         <div class="container2">
-            <div>_ _ _ _ _</div>
-            <div>text</div>
-            <button>Check</button>
+            <h1 id="ans_"></h1> 
+            <p id="clue"></p>
+            <div id="menu">
+                <input type="text" name="" id="guess"><button onclick="checkAnswer()">Check</button>
+            </div>
         </div>
     </div>
+    <script>
+        let answers = ["PYTHON", "JAVASCRIPT", "TAILWIND", "REACT", "LARAVEL"];
+        let clues = [
+        "A versatile programming language named after a snake, loved for its simplicity.",
+        "The language that brings interactivity to websites, often abbreviated as JS.",
+        "A utility-first CSS framework for rapidly building custom designs.",
+        "A JavaScript library for building dynamic user interfaces, created by Facebook.",
+        "A PHP framework known for elegant syntax and robust web development tools.",
+        ];
+        var answer = "";
+        var answer_ = "";
+        var lives = 10;
+        window.onload(generate());
 
+        function generate() {
+            document.getElementById('lives').innerHTML = lives;
+            document.getElementById('man').src = './img/'+lives+'.jpg';
+            num = Math.floor(Math.random()*4.4);
+            answer = answers[num].split('');
+            answer.forEach(huruf => {
+                answer_ += '_ ';
+            });
+            document.getElementById('ans_').innerHTML = answer_;
+            document.getElementById('clue').innerHTML = clues[num];
+        }
+
+        function checkAnswer() {
+            guess = document.getElementById('guess').value.toUpperCase();
+            cek = false;
+            answer.forEach(huruf => {
+                if (huruf == guess)
+                    cek = true;
+            });
+            if (cek) {
+                answer_ = answer_.split(' ');
+                for (let i = 0; i < answer.length; i++) {
+                    if (guess == answer[i]) {
+                        answer_[i] = guess;
+                    }
+                }
+            } else {
+                lives -= 1;
+                document.getElementById('lives').innerHTML = lives;
+                document.getElementById('man').src = './img/'+lives+'.jpg';
+                if (lives == 0) {
+                    let container = document.getElementsByClassName('container2');
+                    let lose = document.createElement('div');
+                    lose.innerHTML = 'Kamu Kalah!';
+                    lose.id = 'lose';
+                    console.log('save');
+                    container[0].appendChild(lose);
+                    console.log('append');
+                    let menu = document.getElementById('menu');
+                    container[0].removeChild(menu);
+                    console.log('delete');
+                }
+            }
+            checkWin();
+            answer_ = answer_.join(' ');
+            document.getElementById('ans_').innerHTML = answer_;
+        }
+
+        function checkWin() {
+            cek = true;
+            answer_.forEach(huruf => {
+                if (huruf == '_')
+                    cek = false;
+            });
+            if (cek) {
+                let container = document.getElementsByClassName('container2');
+                let win = document.createElement('div');
+                win.innerHTML = 'Kamu Menang!';
+                win.id = 'win';
+                console.log('save');
+                container[0].appendChild(win);
+                console.log('append');
+                let menu = document.getElementById('menu');
+                container[0].removeChild(menu);
+                console.log('delete');
+            }
+        }
+    </script>
 </body>
 </html>
